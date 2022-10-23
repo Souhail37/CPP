@@ -6,11 +6,15 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 10:50:44 by sismaili          #+#    #+#              #
-#    Updated: 2022/10/21 11:47:48 by sismaili         ###   ########.fr        #
+#    Updated: 2022/10/23 15:28:22 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = PhoneBook.cpp
+SRC = main.cpp \
+	setContact.cpp \
+	getContact.cpp \
+	addContact.cpp \
+	searchContact.cpp
 
 CC = c++
 
@@ -24,7 +28,7 @@ OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-%.o : %.c phonebook.h
+%.o : %.cpp PhoneBook.h Contact.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
