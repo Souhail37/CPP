@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:00:15 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/23 13:23:51 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:25:21 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int main()
 	std::cout << "Hello to my phone book\n";
 	while (1)
 	{
-		std::cout << "YOU CAN WRITE ANY OF THIS COMMANDS :\n";
+		std::cout << "\n\nYOU CAN WRITE ANY OF THIS COMMANDS :\n";
 		std::cout << "ADD : save a new contact\n";
 		std::cout << "SEARCH : display a specific contact\n";
 		std::cout << "EXIT : to stop the program\n\n\n";
-		if (!std::getline(std::cin >> std::ws, command))
+		if (!std::getline(std::cin, command))
 			exit (1);
 		if (command == "ADD")
 			book.add();
@@ -32,5 +32,7 @@ int main()
 			book.search();
 		else if (command == "EXIT")
 			exit (0);
+		else
+			std::cout << "Wrong command !\n";
 	}
 }

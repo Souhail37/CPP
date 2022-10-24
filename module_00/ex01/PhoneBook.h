@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:03:14 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/23 15:28:15 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:33:13 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ class	PhoneBook
 	public :
 		void	add();
 		void	search();
+		void	search_fn(int n);
+		void	search_ln(int n);
+		void	search_nn(int n);
+		void	search_pn(int n);
+		void	search_ds(int n);
 	private :
 		Contact	contacts[8];
 };
