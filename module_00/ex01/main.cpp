@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:00:15 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/24 12:25:21 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:15:24 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int main()
 			exit (0);
 		else
 			std::cout << "Wrong command !\n";
+		command.clear();
 	}
 }
