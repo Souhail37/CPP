@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.h                                        :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:03:14 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/24 16:05:56 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:42:34 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_H
-#define PHONE_BOOK_H
+#ifndef PHONE_BOOK_HPP
+#define PHONE_BOOK_HPP
 
-#include "Contact.h"
+#include "Contact.hpp"
 
 class	PhoneBook
 {

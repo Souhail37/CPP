@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   getContact.c                                       :+:      :+:    :+:   */
+/*   getContact.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:39:57 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/23 10:46:39 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:43:03 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.h"
+#include "PhoneBook.hpp"
 
 std::string     Contact::getfirst_name() const
 {

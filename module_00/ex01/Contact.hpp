@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.h                                          :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:10:20 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/24 10:57:19 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:42:49 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-#define CONTACT_H
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 #include <stdlib.h>

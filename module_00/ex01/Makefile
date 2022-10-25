@@ -6,7 +6,7 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 10:50:44 by sismaili          #+#    #+#              #
-#    Updated: 2022/10/24 16:08:28 by sismaili         ###   ########.fr        #
+#    Updated: 2022/10/25 10:43:16 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-%.o : %.cpp PhoneBook.h Contact.h
+%.o : %.cpp PhoneBook.hpp Contact.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
