@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:46:34 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/26 12:36:22 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:38:50 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Zombie
 {
 	public :
 		void	announce();
-		void	set(std::string _name);
+		void	setName(std::string _name);
 		Zombie();
 		~Zombie();
 	private :

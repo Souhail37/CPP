@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 11:47:04 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/26 15:39:16 by sismaili         ###   ########.fr       */
+/*   Created: 2022/10/27 16:09:39 by sismaili          #+#    #+#             */
+/*   Updated: 2022/10/28 15:55:39 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-Zombie	*zombieHorde(int N, std::string name)
+#include <iostream>
+#include "Weapon.hpp"
+
+class	HumanA
 {
-	Zombie	*zombies = new Zombie[N];
-	int i = 0;
-	while (i < N)
-	{
-		zombies[i].setName(name);
-		i++;
-	}
-	return (zombies);
-}
+	public :
+		HumanA(std::string _name, Weapon &_weapon);
+		void	setWeapon(std::string _name);
+		void	attack();
+	private :
+		std::string	name;
+		Weapon		&weapon;
+};
+
+#endif
