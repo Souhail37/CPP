@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:14:06 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/28 16:21:18 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/10/28 19:49:57 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	HumanB
 {
 	public :
 		HumanB(std::string _name);
-		void	setWeapon(Weapon _weapon);
+		void	setWeapon(Weapon &_weapon);
 		void	attack();
 	private :
 		std::string	name;
