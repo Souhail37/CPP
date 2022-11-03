@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:25:39 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/01 13:31:13 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/01 14:42:25 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,30 @@ int main(int ac, char **av)
 	if (ac == 4)
 	{
 		std::string		name = av[1];
-		std::ifstream	firstfs(name);
-		std::ofstream	secondfs(name + ".replace");
+		std::ifstream	infs(name);
+		std::ofstream	outfs(name + ".replace");
 		std::string		s1(av[2]);
 		std::string		s2(av[3]);
 		std::string		copy;
-		std::string		str;
-		std::size_t		found;
-		std::size_t		i;
 
-		if (firstfs && secondfs)
+		if (infs && outfs)
 		{
-			while(std::getline(firstfs, copy))
+			while(std::getline(infs, copy))
 			{
 				std::string tmp = copy;
-				found = tmp.find(s1);
-				str = tmp;
+				std::size_t	found = tmp.find(s1);
+				std::string	str = tmp;
 				while (found < tmp.length())
 				{
 					found += str.length() - tmp.length();
-					std::cout << found << std::endl;
 					str = copy.substr(0, found);
 					str += s2;
-					i = found + s1.length();
-					str += copy.substr(i, copy.length());
+					str += copy.substr(found + s1.length(), copy.length());
 					tmp = str.substr(found + s2.length(), tmp.length());
-					std::cout << tmp << std::endl;
 					copy = str;
 					found = tmp.find(s1);
 				}
-				secondfs << copy << std::endl;
+				outfs << copy << std::endl;
 			}
 		}
 	}
