@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:46:22 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/26 12:54:09 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:42:35 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	int	N = 42;
+	int	N = 0;
 	Zombie	*zombies = zombieHorde(N, "sa9azo");
 
 	while (N > 0)
