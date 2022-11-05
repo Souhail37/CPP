@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 11:25:39 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/01 14:42:25 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:08:44 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ int main(int ac, char **av)
 	{
 		std::string		name = av[1];
 		std::ifstream	infs(name);
-		std::ofstream	outfs(name + ".replace");
 		std::string		s1(av[2]);
 		std::string		s2(av[3]);
 		std::string		copy;
 
-		if (infs && outfs)
+		if (s1.empty())
+			return (0);
+		if (infs)
 		{
+			std::ofstream	outfs(name + ".replace");
 			while(std::getline(infs, copy))
 			{
 				std::string tmp = copy;
