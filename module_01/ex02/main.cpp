@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:40:49 by sismaili          #+#    #+#             */
-/*   Updated: 2022/10/26 14:48:08 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/07 14:47:35 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	std::string	&stringREF = string;
 
 	std::cout << &string << std::endl;
-	std::cout << &stringPTR << std::endl;
+	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 
 	std::cout << std::endl;
