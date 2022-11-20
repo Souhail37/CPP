@@ -6,7 +6,7 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 12:36:55 by sismaili          #+#    #+#              #
-#    Updated: 2022/11/06 12:43:52 by sismaili         ###   ########.fr        #
+#    Updated: 2022/11/16 17:57:19 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM = rm -f
 
 OBJS = $(SRC:.cpp=.o)
 
-NAME = Fixed
+NAME = a.out
 
 all : $(NAME)
 
