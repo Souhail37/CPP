@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:04:35 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/20 22:17:29 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:56:15 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,32 +99,32 @@ Fixed	Fixed::operator--(int)
 	return temp;
 }
 
-bool	Fixed::operator>(const Fixed &fixed)
+bool	Fixed::operator>(const Fixed &fixed) const
 {
 	return this->value > fixed.getRawBits();
 }
 
-bool	Fixed::operator<(const Fixed &fixed)
+bool	Fixed::operator<(const Fixed &fixed) const
 {
-	return !(operator>(fixed));
+	return !(this->value > fixed.getRawBits());
 }
 
-bool	Fixed::operator>=(const Fixed &fixed)
+bool	Fixed::operator>=(const Fixed &fixed) const
 {
 	return this->value >= fixed.getRawBits();
 }
 
-bool	Fixed::operator<=(const Fixed &fixed)
+bool	Fixed::operator<=(const Fixed &fixed) const
 {
 	return !(operator>=(fixed));
 }
 
-bool	Fixed::operator==(const Fixed &fixed)
+bool	Fixed::operator==(const Fixed &fixed) const
 {
 	return this->value == fixed.getRawBits();
 }
 
-bool	Fixed::operator!=(const Fixed &fixed)
+bool	Fixed::operator!=(const Fixed &fixed) const
 {
 	return !(operator==(fixed));
 }
@@ -164,6 +164,30 @@ int		Fixed::toInt() const
 float	Fixed::toFloat() const
 {
 	return ((float)this->value / (float)(1 << this->number));	
+}
+
+Fixed	&Fixed::fmin(Fixed &f1, Fixed &f2)
+{
+	Fixed &comp = (f1 < f2) ? f1 : f2;
+	return (comp);
+}
+
+Fixed const	&Fixed::fmin(const Fixed &f1, const Fixed &f2)
+{
+	Fixed const &comp = (f1 < f2) ? f1 : f2;
+	return (comp);
+}
+
+Fixed	&Fixed::fmax(Fixed &f1, Fixed &f2)
+{
+	Fixed &comp = (f1 > f2) ? f1 : f2;
+	return (comp);
+}
+
+Fixed const	&Fixed::fmax(const Fixed &f1, const Fixed &f2)
+{
+	Fixed const &comp = (f1 > f2) ? f1 : f2;
+	return (comp);
 }
 
 std::ostream &operator<<(std::ostream &o, Fixed const &i)
