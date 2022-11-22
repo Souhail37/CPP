@@ -17,7 +17,7 @@ int main()
 	Point const	a(5, 6);
 	Point const	b(10, 12);
 	Point const	c(15, 6);
-	Point const point(15, 16);
+	Point const point(7, 7);
 
 	if (bsp(a, b, c, point))
 		std::cout << "the point is inside the triangle" << std::endl;

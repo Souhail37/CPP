@@ -12,7 +12,7 @@
 
 #include "Point.hpp"
 
-Fixed	det_cal(Point const point1, Point const point2, Point const point3)
+float	det_cal(Point const point1, Point const point2, Point const point3)
 {
 	Fixed	det;
 
@@ -20,7 +20,7 @@ Fixed	det_cal(Point const point1, Point const point2, Point const point3)
 		+ point3.getPointx() * (point1.getPointy() - point2.getPointy());
 	if (det < 0)
 		det = det * -1;
-	return (det / 2);
+	return (det.toFloat() / 2);
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
@@ -34,7 +34,7 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	det1 = det_cal(a, b, point);
 	det2 = det_cal(point, b, c);
 	det3 = det_cal(a, point, c);
-	if (det == det1 + det2 + det3 && det1 != 0 && det2 != 0 && det3 != det3)
+	if (det == det1 + det2 + det3 && det1 != 0 && det2 != 0 && det3 != 0)
 		return (1);
 	return (0);
 }
