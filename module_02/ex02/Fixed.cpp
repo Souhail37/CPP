@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 17:04:35 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/21 16:56:15 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:08:15 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,25 +166,25 @@ float	Fixed::toFloat() const
 	return ((float)this->value / (float)(1 << this->number));	
 }
 
-Fixed	&Fixed::fmin(Fixed &f1, Fixed &f2)
+Fixed	&Fixed::min(Fixed &f1, Fixed &f2)
 {
 	Fixed &comp = (f1 < f2) ? f1 : f2;
 	return (comp);
 }
 
-Fixed const	&Fixed::fmin(const Fixed &f1, const Fixed &f2)
+Fixed const	&Fixed::min(const Fixed &f1, const Fixed &f2)
 {
 	Fixed const &comp = (f1 < f2) ? f1 : f2;
 	return (comp);
 }
 
-Fixed	&Fixed::fmax(Fixed &f1, Fixed &f2)
+Fixed	&Fixed::max(Fixed &f1, Fixed &f2)
 {
 	Fixed &comp = (f1 > f2) ? f1 : f2;
 	return (comp);
 }
 
-Fixed const	&Fixed::fmax(const Fixed &f1, const Fixed &f2)
+Fixed const	&Fixed::max(const Fixed &f1, const Fixed &f2)
 {
 	Fixed const &comp = (f1 > f2) ? f1 : f2;
 	return (comp);

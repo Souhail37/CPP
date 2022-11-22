@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:24:47 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/20 22:17:47 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:08:20 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int main( void )
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    // std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }
