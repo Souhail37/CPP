@@ -34,7 +34,5 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	det1 = det_cal(a, b, point);
 	det2 = det_cal(point, b, c);
 	det3 = det_cal(a, point, c);
-	if (det == det1 + det2 + det3 && det1 != 0 && det2 != 0 && det3 != 0)
-		return (1);
-	return (0);
+	return (det == det1 + det2 + det3 && det1 != 0 && det2 != 0 && det3 != 0);
 }
