@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:12:12 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/25 19:20:09 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/26 00:04:47 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ FragTrap::FragTrap(const FragTrap &ft)
     *this = ft;
 }
 
-FragTrap::FragTrap(std::string Name) : ClapTrap(Name)
+FragTrap::FragTrap(std::string Name)
 {
     std:: cout << "FragTrap : Name constructor called" << std::endl;
+    this->Name = Name;
     this->Hit_points = 100;
     this->Energy_points = 100;
     this->Attack_damage = 30;
