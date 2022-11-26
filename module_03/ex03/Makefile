@@ -6,7 +6,7 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 20:13:34 by sismaili          #+#    #+#              #
-#    Updated: 2022/11/25 23:39:07 by sismaili         ###   ########.fr        #
+#    Updated: 2022/11/26 14:55:16 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = main.cpp \
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 RM = rm -f
 
