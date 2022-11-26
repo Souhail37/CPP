@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:12:12 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/26 00:04:47 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:17:03 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,18 @@ FragTrap    &FragTrap::operator=(const FragTrap &ft)
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap : Destructor called" << std::endl;
+}
+
+void FragTrap::attack(const std::string &target)
+{
+    if (this->Hit_points > 0 && this->Energy_points > 0)
+	{
+		std::cout << "FragTrap " << this->Name << " attacks " << target
+			<< ", causing " << this->Attack_damage << " points of damage!" << std::endl;
+		this->Energy_points--;
+	}
+	else
+		std::cout << "FragTrap " << this->Name << " can't attack" << std::endl;
 }
 
 void    FragTrap::highFivesGuys()
