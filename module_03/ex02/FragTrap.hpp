@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 19:05:38 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/26 15:17:32 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:28:15 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class	FragTrap : public ClapTrap
 		FragTrap(std::string Name);
 		FragTrap	&operator=(const FragTrap &ft);
 		~FragTrap();
-		void	attack(const std::string &targer);
 		void	highFivesGuys(void);
 };
 
