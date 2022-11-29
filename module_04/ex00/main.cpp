@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:09:58 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/28 16:47:05 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:05:09 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int main()
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-
+	delete meta;
+	delete j;
+	delete i;
 	return 0;
 }
