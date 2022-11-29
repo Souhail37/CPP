@@ -6,18 +6,22 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/28 15:18:11 by sismaili          #+#    #+#              #
-#    Updated: 2022/11/28 15:35:11 by sismaili         ###   ########.fr        #
+#    Updated: 2022/11/29 17:08:07 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.cpp \
 	Animal.cpp \
 	Dog.cpp \
-	Cat.cpp
+	Cat.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp
 
 HEADERS = Animal.hpp \
 		Dog.hpp \
-		Cat.hpp
+		Cat.hpp \
+		WrongAnimal.hpp \
+		WrongCat.hpp
 
 CC = c++
 

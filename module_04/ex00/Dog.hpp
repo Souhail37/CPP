@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:53:14 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/28 16:21:58 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:54:55 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Dog : public Animal
 		Dog();
 		Dog(const Dog &dog);
 		Dog	&operator=(const Dog &dog);
-		~Dog();
+		virtual ~Dog();
 		virtual std::string	getType() const;
 		virtual void	makeSound() const;
 };
