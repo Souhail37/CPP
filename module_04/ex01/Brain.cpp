@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:57:37 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/29 15:18:11 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:22:23 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Brain::Brain()
 
 Brain::Brain(const Brain &brain)
 {
+	std::cout << "Brain : Copy constructor called" << std::endl;
 	*this = brain;
 }
 
