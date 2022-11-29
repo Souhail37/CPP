@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:53:17 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/28 18:48:24 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:17:45 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class	Brain
 		Brain(const Brain &brain);
 		Brain	&operator=(const Brain &brain);
 		~Brain();
+		std::string	*getIdeas() const;
+		void	setIdeas(std::string idea);
 };
 
 #endif

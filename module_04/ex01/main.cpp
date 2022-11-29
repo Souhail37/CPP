@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:50:53 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/28 19:39:50 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:40:56 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,8 @@
 
 int main()
 {
-	// const Animal* meta = new Animal();
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-
-	// std::cout << j->getType() << " " << std::endl;
-	// std::cout << i->getType() << " " << std::endl;
-	// i->makeSound();
-	// j->makeSound();
-	// meta->makeSound();
 	Animal	*animals[6];
+	Brain	brain;
 	for (int i = 0; i < 6; i++)
 	{
 		if (i < 3)

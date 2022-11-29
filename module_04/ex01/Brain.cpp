@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:57:37 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/29 14:12:22 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:18:11 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
 	std::cout << "Brain : Default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = "idea";
 }
 
 Brain::Brain(const Brain &brain)
@@ -32,4 +34,15 @@ Brain	&Brain::operator=(const Brain &brain)
 Brain::~Brain()
 {
 	std::cout << "Brain : Destructor called" << std::endl;
+}
+
+std::string	*Brain::getIdeas() const
+{
+	return	(std::string *)this->ideas;
+}
+
+void	Brain::setIdeas(std::string idea)
+{
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
 }
