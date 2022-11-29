@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:18:42 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/29 14:18:44 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:26:08 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog()
 
 Dog::Dog(const Dog &dog)
 {
-	std::cout << "Cat : Copy constructor called" << std::endl;
+	std::cout << "Dog : Copy constructor called" << std::endl;
 	*this = dog;
 	this->brain = new Brain();
 }
@@ -45,5 +45,5 @@ std::string	Dog::getType() const
 
 void	Dog::makeSound() const
 {
-	std::cout << "3aw 3aw" << std::endl;
+	std::cout << "woof woof" << std::endl;
 }

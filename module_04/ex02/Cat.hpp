@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:18:35 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/29 16:20:06 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 16:55:38 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Cat : public AAnimal
 		Cat();
 		Cat(const Cat &cat);
 		Cat	&operator=(const Cat &cat);
-		~Cat();
+		virtual ~Cat();
 		virtual std::string	getType() const;
 		virtual void	makeSound() const;
 };

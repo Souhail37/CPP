@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:18:05 by sismaili          #+#    #+#             */
-/*   Updated: 2022/11/29 16:23:31 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:34:45 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,4 @@ AAnimal::~AAnimal()
 std::string	AAnimal::getType() const
 {
 	return this->type;
-}
-
-void	AAnimal::makeSound() const
-{
-	std::cout << "??" << std::endl;
 }
