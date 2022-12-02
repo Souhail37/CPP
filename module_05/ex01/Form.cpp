@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:47:36 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/02 20:11:37 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/02 23:17:42 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ const std::string	Form::getName() const
 	return this->_name;
 }
 
+bool	Form::getItsSigned() const
+{
+	return this->_its_signed;
+}
+
 int	Form::getSignGrade() const
 {
 	return this->_sign_grade;
@@ -69,7 +74,7 @@ void	Form::beSigned(Bureaucrat &b)
 }
 
 Form::GradeTooHighException::GradeTooHighException() throw()
-{	
+{
 }
 
 const char	*Form::GradeTooHighException::what() const throw()

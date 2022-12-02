@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:30:54 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/02 20:09:22 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/02 23:17:09 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class	Form
 		Form(const std::string _name, const int _sign_grade, const int _exec_grade);
 		~Form();
 		const std::string	getName() const;
+		bool		getItsSigned() const;
 		int			getSignGrade() const;
 		int			getExGrade() const;
 		void	beSigned(Bureaucrat &b);
