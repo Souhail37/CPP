@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:09:41 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/01 23:40:59 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/02 16:50:59 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 
 class	Bureaucrat
 {
@@ -24,27 +25,23 @@ class	Bureaucrat
 		Bureaucrat();
 		Bureaucrat(const Bureaucrat &b);
 		Bureaucrat	&operator=(const Bureaucrat &b);
-		Bureaucrat(const char *str, int grade);
+		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
 		std::string	getName() const;
 		int	getGrade() const;
-		void	incGrade(int grade);
-		void	decGrade(int grade);
-		class	GradeTooHighException : public std::exception
+		void	incGrade();
+		void	decGrade();
+		class GradeTooHighException : public std::exception
 		{
-			public :
-				virtual const char* toohigh() const throw()
-				{
-					return ("Grade is out of range : too high exception");
-				}
+			public:
+				GradeTooHighException() throw();
+				virtual const char *what() const throw();
 		};
-		class	GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
 			public :
-				virtual const char* toolow() const throw()
-				{
-					return ("Grade is out of range : too low exception");
-				}
+				GradeTooLowException() throw();
+				virtual const char *what() const throw();
 		};
 };
 
