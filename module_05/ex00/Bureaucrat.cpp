@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:38:51 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/02 17:26:17 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/03 22:37:32 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::incGrade()
 {
-	std::string	msg = "Grade is out of range : too high exception";
 	if (this->_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;
@@ -65,7 +64,6 @@ void	Bureaucrat::incGrade()
 
 void	Bureaucrat::decGrade()
 {
-	std::string msg = "Grade is out of range : too low exception";
 	if (this->_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
