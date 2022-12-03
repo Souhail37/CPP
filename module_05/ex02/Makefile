@@ -6,7 +6,7 @@
 #    By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/03 15:44:15 by sismaili          #+#    #+#              #
-#    Updated: 2022/12/03 19:03:27 by sismaili         ###   ########.fr        #
+#    Updated: 2022/12/03 21:28:44 by sismaili         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean :
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) *_shrubbery
 
 fclean : clean
 	$(RM) $(NAME)
