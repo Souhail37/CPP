@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:44:10 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/03 21:24:05 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:39:09 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main(void)
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		delete rrf;
 	}
 	catch (std::exception &e)
 	{

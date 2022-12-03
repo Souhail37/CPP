@@ -29,7 +29,7 @@ class	AForm
 		AForm(const AForm &Aform);
 		AForm	&operator=(const AForm &Aform);
 		AForm(const std::string _name, const int _sign_grade, const int _exec_grade);
-		~AForm();
+		virtual ~AForm();
 		const std::string	getName() const;
 		bool		getItsSigned() const;
 		int			getSignGrade() const;
