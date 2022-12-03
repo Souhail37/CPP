@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 18:15:46 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/03 19:17:50 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:54:28 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,14 @@ std::string	RobotomyRequestForm::getTarget() const
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
+	srand(time(0));
+	int random = rand();
 	if (executor.getGrade() >= this->getExGrade() || !this->getItsSigned())
 		throw AForm::GradeTooLowException();
 	else
 	{
 		std::cout << "some drilling noises" << std::endl;
-		if (rand() % 2)
+		if (random % 2)
 			std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
 		else
 			std::cout << "The robotomy failed" << std::endl;
