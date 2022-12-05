@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 13:03:11 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/05 15:19:47 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:04:32 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	identify(Base& p)
 		A	a = dynamic_cast<A &>(p);
 		std::cout << "The object pointed to by p : A" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::bad_cast& bc)
 	{
 	}
 	try
@@ -63,7 +63,7 @@ void	identify(Base& p)
 		B	b = dynamic_cast<B &>(p);
 		std::cout << "The object pointed to by p : B" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::bad_cast& bc)
 	{
 	}
 	try
@@ -71,7 +71,7 @@ void	identify(Base& p)
 		C	c = dynamic_cast<C &>(p);
 		std::cout << "The object pointed to by p : C" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::bad_cast& bc)
 	{
 	}
 	
