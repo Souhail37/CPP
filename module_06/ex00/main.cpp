@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 18:56:52 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/04 20:43:48 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:29:10 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		str = av[1];
-		if (!detect_type(str))
-			std::cout << "Unknown type" << std::endl;
+		try
+		{
+			detect_type(str);
+		}
+		catch (const char* err)
+		{
+			std::cerr << err << std::endl;
+		}
 	}
 	return 0;
 }

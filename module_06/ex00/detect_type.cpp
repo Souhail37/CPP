@@ -6,13 +6,13 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:26:36 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/04 23:34:34 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:20:57 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scalar.hpp"
 
-int	detect_type(std::string str)
+void	detect_type(std::string str)
 {
 	char	c;
 	int		n;
@@ -29,13 +29,12 @@ int	detect_type(std::string str)
 		std::cout << "float: " << f << "f" << std::endl;
 		d = static_cast<double>(c);
 		std::cout << "double: " << d << std::endl;
-		return 1;
 	}
 	else if (is_int(str))
 	{
 		long	l = std::stol(str);
 		if (l > INT_MAX || l < INT_MIN)
-			return 0;
+			throw "Unknown type";
 		std::cout << std::fixed << std::setprecision(1);
 		n = std::stoi(str);
 		if ((n >= 32 && n <= 126))
@@ -50,7 +49,6 @@ int	detect_type(std::string str)
 		std::cout << "float: " << f << "f" << std::endl;
 		d = static_cast<double>(n);
 		std::cout << "double: " << d << std::endl;
-		return 1;
 	}
 	else if (is_float(str))
 	{
@@ -68,7 +66,6 @@ int	detect_type(std::string str)
 		std::cout << "float: " << f << "f" << std::endl;
 		d = static_cast<double>(f);
 		std::cout << "double: " << d << std::endl;
-		return 1;
 	}
 	else if (is_double(str))
 	{
@@ -86,7 +83,6 @@ int	detect_type(std::string str)
 		f = static_cast<float>(d);
 		std::cout << "float: " << f << "f" << std::endl;
 		std::cout << "double: " << d << std::endl;
-		return 1;
 	}
 	else if (str == "-inff" || str == "+inff" || str == "nanf")
 	{
@@ -94,7 +90,6 @@ int	detect_type(std::string str)
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: " << str.substr(0, str.length() - 1) << std::endl;
-		return 1;
 	}
 	else if (str == "-inf" || str == "+inf" || str == "nan")
 	{
@@ -102,7 +97,7 @@ int	detect_type(std::string str)
 		std::cout << "int: impossible" << std::endl;
 		std::cout << "float: " << str + "f" << std::endl;
 		std::cout << "double: " << str << std::endl;
-		return 1;
 	}
-	return 0;
+	else
+		throw "Unknown type";
 }
