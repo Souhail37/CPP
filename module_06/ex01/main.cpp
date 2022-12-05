@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:38:24 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/05 12:36:53 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:54:14 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,12 @@ Data*	deserialize(uintptr_t raw)
 
 int	main()
 {
-	uintptr_t	test;
-	Data	*ok;
+	Data	*ptr;
 
-	ok->a = 5;
-	ok->b = 'c';
-	test = serialize(ok);
-	std::cout << ok->a << std::endl;
-	std::cout << &ok << std::endl;
-	ok = NULL;
-	ok = deserialize(test);
-	std::cout << ok->a << std::endl;
-	std::cout << &ok << std::endl;
+	if(deserialize(serialize(ptr)) == ptr)
+	{
+		std::cout << "Equals" << std::endl;
+	}
+	else
+		std::cout << "not Equals" << std::endl;
 }

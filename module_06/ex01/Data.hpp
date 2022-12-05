@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:40:46 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/05 11:42:09 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/05 12:56:43 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 typedef struct Data
 {
 	int a;
-	char b;
 }	Data;
 
 #endif
