@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 00:40:40 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/07 14:39:58 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:44:52 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 # define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
 
 template <typename T>
 class	Array
 {
 	private :
 		T	*elements;
-		unsigned int	e_size;
+		int	e_size;
 	public :
 		Array()
 		{
-			elements = new T();
+			elements = new T[0];
 			e_size = 0;
 		};
 		Array(unsigned int n)
@@ -36,6 +37,7 @@ class	Array
 		}
 		Array(const Array &a)
 		{
+			elements = new T[a.e_size];
 			*this = a;
 		}
 		Array	&operator=(const Array &a)
@@ -43,7 +45,7 @@ class	Array
 			delete [] elements;
 			elements = new T[a.e_size];
 			e_size = a.e_size;
-			for (unsigned int i = 0; i < e_size; i++)
+			for (int i = 0; i < e_size; i++)
 				elements[i] = a.elements[i];
 			return *this;
 		}
@@ -51,14 +53,14 @@ class	Array
 		{
 			delete [] elements;
 		}
-		T	&operator[](unsigned int index)
+		T	&operator[](int index)
 		{
-			if (index < e_size)
+			if (index < e_size && index >= 0)
 				return elements[index];
 			else
-				throw "Index is out of bounds";
+				throw std::out_of_range("Index is out of bounds");
 		}
-		unsigned int	size() const
+		int	size() const
 		{
 			return this->e_size;
 		}
