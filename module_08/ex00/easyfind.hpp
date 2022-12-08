@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 01:07:43 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/08 01:20:38 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:19:26 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 template<typename T>
 void	easyfind(T first, int i)
 {
-	std::vector<int>::const_iterator it;
-	it = std::find(first.begin(), first.end(), i);
+	typename T::const_iterator it;
+	it = std::find(first.cbegin(), first.cend(), i);
 	if (it == first.end())
 		throw "No occurrence is found";
 	std::cout << "The number is found : " << *it << std::endl;
