@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:00:41 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/08 16:30:54 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:16:02 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <list>
 #include <vector>
+#include <limits>
 
 class	Span
 {
@@ -31,6 +32,7 @@ class	Span
 		Span	&operator=(const Span &s);
 		~Span();
 		void	addNumber(int n);
+		void	addMult(int n, int *arr);
 		int	shortestSpan();
 		int	longestSpan();
 };

@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 14:24:50 by sismaili          #+#    #+#             */
-/*   Updated: 2022/12/08 16:41:53 by sismaili         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:19:25 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ void	Span::addNumber(int n)
 		this->v.push_back(n);
 	else
 		throw "There are already N elements strored";
+}
+
+void	Span::addMult(int n, int *arr)
+{
+	if (n > INT_MAX || n < INT_MIN || n < 1 || this->N < (unsigned int)n)
+		throw "You can't add this numbers";
+	for (int i = 0; i < n; i++)
+		this->v.push_back(arr[i]);
 }
 
 int	Span::shortestSpan()
