@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/01 00:55:01 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:01:21 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,26 @@ bool	isLeapYear(int year)
 		return true;
 }
 
+bool	isNumber(const std::string &value)
+{
+	std::size_t	plus;
+	std::size_t	minus;
+	int			check = 0;
+
+	for (int i = 0; value[i]; i++)
+	{
+		if (value[i] == '.')
+			check++;
+	}
+	if (check > 1)
+		return false;
+	plus = value.find_first_of("+");
+	minus = value.find_first_of("-");
+	if ((plus != 0 && plus != std::string::npos) || (minus != 0 && minus != std::string::npos))
+		return false;
+	return true;
+}
+
 bool	isValidDate(const std::string &date)
 {
     struct tm timeStruct;
@@ -98,12 +118,20 @@ bool	isValidDate(const std::string &date)
 void	BitcoinExchange::check_date()
 {
 	if (!isValidDate(date))
-		throw "Error, date not valid";
+		std::cout << "Error: bad input => " << line << std::endl;
 }
 
 void	BitcoinExchange::check_value()
 {
-	
+	double	n;
+
+	if (value.find_first_not_of("-+0123456789.") != std::string::npos || !isNumber(value))
+		std::cout << "Error: value not valid" << std::endl;
+	n = atof(value.c_str());
+	if (n < 0)
+		std::cout << "Error: not a positive number." << std::endl;
+	if (n > 1000)
+		std::cout << "Error: too large a number." << std::endl;
 }
 
 void	BitcoinExchange::check_syntax(int i)
@@ -111,10 +139,13 @@ void	BitcoinExchange::check_syntax(int i)
 	if (i == 0)
 	{
 		if (line.empty())
-			throw "Error, first line is empty";
+			throw "Error: first line is empty";
 		line = line_substr();
 		if (line != "date | value")
-			throw "Syntax error";
+		{
+			std::cout << "Error: bad input => " << line << std::endl;
+			exit(1);
+		}
 	}
 	else
 	{
@@ -122,10 +153,13 @@ void	BitcoinExchange::check_syntax(int i)
 			return ;
 		line = line_substr();
 		pos = line.find_first_of("|");
-		if (pos == std::string::npos)
-			throw "Syntax error";
+		if (pos == std::string::npos || pos == 0 || pos == line.length() - 1)
+			std::cout << "Error: bad input => " << line << std::endl;
+		else if ((line[pos - 1] == ' ' && line[pos - 2] == ' ') || (line[pos + 1] == ' ' && line[pos + 2] == ' '))
+			std::cout << "Error: bad input => " << line << std::endl;
 		date = line.substr(0, pos - 1);
 		value = line.substr(pos + 2);
 		check_date();
+		check_value();
 	}
 }

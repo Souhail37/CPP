@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:55:20 by sismaili          #+#    #+#             */
-/*   Updated: 2023/04/30 17:37:35 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:03:09 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	main(int ac, char **av)
 		}
 		catch(const char *e)
 		{
-			std::cerr << e << '\n';
+			std::cout << e << '\n';
 		}
 		
 	}
+	else
+		std::cout << "Error: could not open file." << std::endl;
 	return (0);
 }
