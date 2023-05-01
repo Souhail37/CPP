@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:59:00 by sismaili          #+#    #+#             */
-/*   Updated: 2023/04/30 18:09:34 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/01 00:15:11 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <sstream>
 
 class BitcoinExchange
 {
@@ -31,8 +32,10 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &copy);
 		~BitcoinExchange();
 		BitcoinExchange(std::ifstream &data, std::ifstream &file);
-		void		syntax_check(int i);
 		std::string	line_substr();
+		void		check_syntax(int i);
+		void		check_date();
+		void		check_value();
 };
 
 #endif

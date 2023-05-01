@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/04/30 18:41:52 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/01 00:55:01 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,66 @@ BitcoinExchange::BitcoinExchange(std::ifstream &data, std::ifstream &file)
 	btc.erase("date");
 	while (std::getline(file, line))
 	{
-		syntax_check(i);
+		check_syntax(i);
 		i++;
 	}
-	
 }
 
 std::string	BitcoinExchange::line_substr()
 {
 	std::size_t	first;
 	std::size_t	last;
-	
+
 	first = line.find_first_not_of(" \t");
 	last = line.find_last_not_of(" \t");
 	return (line.substr(first, last - first + 1));
 }
 
-void	BitcoinExchange::syntax_check(int i)
+bool	isLeapYear(int year)
+{
+	if (year % 4 != 0)
+		return false;
+	else if (year % 100 != 0)
+		return true;
+	else if (year % 400 != 0)
+		return false;
+	else
+		return true;
+}
+
+bool	isValidDate(const std::string &date)
+{
+    struct tm timeStruct;
+    std::stringstream date_stream(date);
+    std::string year_str, month_str, day_str;
+
+    getline(date_stream, year_str, '-');
+    getline(date_stream, month_str, '-');
+    getline(date_stream, day_str, '-');
+    int year = atoi(year_str.c_str());
+    int month = atoi(month_str.c_str());
+    int day = atoi(day_str.c_str());
+
+    if (strptime(date.c_str(), "%Y-%m-%d", &timeStruct) == NULL) {
+        return (false);
+    }
+    if (isLeapYear(year) == false && month == 2 && day > 28)
+        return (false);
+    return (true);
+}
+
+void	BitcoinExchange::check_date()
+{
+	if (!isValidDate(date))
+		throw "Error, date not valid";
+}
+
+void	BitcoinExchange::check_value()
+{
+	
+}
+
+void	BitcoinExchange::check_syntax(int i)
 {
 	if (i == 0)
 	{
@@ -83,5 +126,6 @@ void	BitcoinExchange::syntax_check(int i)
 			throw "Syntax error";
 		date = line.substr(0, pos - 1);
 		value = line.substr(pos + 2);
+		check_date();
 	}
 }
