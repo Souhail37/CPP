@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/02 18:24:12 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:48:50 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 
 BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
-	this->btc = copy.btc;
-	this->line = copy.line;
-	this->date = copy.date;
-	this->value = copy.value;
-	this->pos = copy.pos;
-	this->n = copy.n;
+	btc = copy.btc;
+	line = copy.line;
+	date = copy.date;
+	value = copy.value;
+	pos = copy.pos;
+	n = copy.n;
 	return *this;
 }
 
