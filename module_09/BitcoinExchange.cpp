@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/02 00:01:21 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:24:12 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &copy)
 	this->date = copy.date;
 	this->value = copy.value;
 	this->pos = copy.pos;
+	this->n = copy.n;
 	return *this;
 }
 
@@ -58,6 +59,11 @@ std::string	BitcoinExchange::line_substr()
 	std::size_t	last;
 
 	first = line.find_first_not_of(" \t");
+	if (first == std::string::npos)
+	{
+		line.clear();
+		return line;
+	}
 	last = line.find_last_not_of(" \t");
 	return (line.substr(first, last - first + 1));
 }
@@ -89,7 +95,8 @@ bool	isNumber(const std::string &value)
 		return false;
 	plus = value.find_first_of("+");
 	minus = value.find_first_of("-");
-	if ((plus != 0 && plus != std::string::npos) || (minus != 0 && minus != std::string::npos))
+	if ((plus != 0 && plus != std::string::npos) || (minus != 0 && minus != std::string::npos)
+		|| (plus == 0 && value[plus + 1] == '+'))
 		return false;
 	return true;
 }
@@ -115,23 +122,62 @@ bool	isValidDate(const std::string &date)
     return (true);
 }
 
-void	BitcoinExchange::check_date()
+bool	BitcoinExchange::check_date()
 {
-	if (!isValidDate(date))
+	if (date.length() != 10)
+	{
 		std::cout << "Error: bad input => " << line << std::endl;
+		return false;
+	}
+	if (!isValidDate(date))
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return false;
+	}
+	return true;
 }
 
-void	BitcoinExchange::check_value()
+bool	BitcoinExchange::check_value()
 {
-	double	n;
-
 	if (value.find_first_not_of("-+0123456789.") != std::string::npos || !isNumber(value))
+	{
 		std::cout << "Error: value not valid" << std::endl;
-	n = atof(value.c_str());
-	if (n < 0)
+		return false;
+	}
+	if (value.find_first_of("-") != std::string::npos)
+	{
 		std::cout << "Error: not a positive number." << std::endl;
+		return false;
+	}
+	n = atof(value.c_str());
 	if (n > 1000)
+	{
 		std::cout << "Error: too large a number." << std::endl;
+		return false;
+	}
+	return true;
+}
+
+void	BitcoinExchange::search_for_date()
+{
+	std::map<std::string, std::string>::iterator it;
+	double	v = 0;
+
+	it = btc.lower_bound(date);
+	if (it != btc.begin())
+	{
+		if (it->first != date)
+			it--;
+		v = atof(it->second.c_str());
+		std::cout << date << " => " << value << " = " << v * n << std::endl;
+	}
+	else if (it->first == date)
+	{
+		v = atof(it->second.c_str());
+		std::cout << date << " => " << value << " = " << v * n << std::endl;
+	}
+	else
+		std::cout << "Error: bad input => " << line << std::endl;
 }
 
 void	BitcoinExchange::check_syntax(int i)
@@ -143,7 +189,7 @@ void	BitcoinExchange::check_syntax(int i)
 		line = line_substr();
 		if (line != "date | value")
 		{
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cout << "Error: first line is wrong" << std::endl;
 			exit(1);
 		}
 	}
@@ -152,14 +198,25 @@ void	BitcoinExchange::check_syntax(int i)
 		if (line.empty())
 			return ;
 		line = line_substr();
+		if (line.empty())
+			return ;
 		pos = line.find_first_of("|");
 		if (pos == std::string::npos || pos == 0 || pos == line.length() - 1)
+		{
 			std::cout << "Error: bad input => " << line << std::endl;
-		else if ((line[pos - 1] == ' ' && line[pos - 2] == ' ') || (line[pos + 1] == ' ' && line[pos + 2] == ' '))
+			return ;
+		}
+		else if (line[pos - 1] != ' ' || line[pos - 2] == ' ' || line[pos + 1] != ' ' || line[pos + 2] == ' ')
+		{
 			std::cout << "Error: bad input => " << line << std::endl;
+			return ;
+		}
 		date = line.substr(0, pos - 1);
 		value = line.substr(pos + 2);
-		check_date();
-		check_value();
+		if (check_date())
+		{
+			if (check_value())
+				search_for_date();
+		}
 	}
 }

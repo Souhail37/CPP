@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 13:59:00 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/01 00:15:11 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:47:08 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class BitcoinExchange
 		std::string	date;
 		std::string	value;
 		std::size_t	pos;
+		double		n;
 	public :
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &copy);
@@ -34,8 +35,9 @@ class BitcoinExchange
 		BitcoinExchange(std::ifstream &data, std::ifstream &file);
 		std::string	line_substr();
 		void		check_syntax(int i);
-		void		check_date();
-		void		check_value();
+		bool		check_date();
+		bool		check_value();
+		void		search_for_date();
 };
 
 #endif
