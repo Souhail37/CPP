@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/02 19:48:50 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/02 22:40:41 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ bool	isValidDate(const std::string &date)
     return (true);
 }
 
-bool	BitcoinExchange::check_date()
+bool	BitcoinExchange::check_date(std::string &date)
 {
 	if (date.length() != 10)
 	{
@@ -137,7 +137,7 @@ bool	BitcoinExchange::check_date()
 	return true;
 }
 
-bool	BitcoinExchange::check_value()
+bool	BitcoinExchange::check_value(std::string &value)
 {
 	if (value.find_first_not_of("-+0123456789.") != std::string::npos || !isNumber(value))
 	{
@@ -158,7 +158,7 @@ bool	BitcoinExchange::check_value()
 	return true;
 }
 
-void	BitcoinExchange::search_for_date()
+void	BitcoinExchange::search_for_date(std::string &date)
 {
 	std::map<std::string, std::string>::iterator it;
 	double	v = 0;
@@ -213,10 +213,10 @@ void	BitcoinExchange::check_syntax(int i)
 		}
 		date = line.substr(0, pos - 1);
 		value = line.substr(pos + 2);
-		if (check_date())
+		if (check_date(date))
 		{
-			if (check_value())
-				search_for_date();
+			if (check_value(value))
+				search_for_date(date);
 		}
 	}
 }
