@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:18:10 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/05 22:48:22 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/05 23:59:01 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	PmergeMe::merge(std::deque<int> &left, std::deque<int> &right, std::deque<i
 void	PmergeMe::merge_deque(std::deque<int> &d_sort)
 {
 	int	length = d_sort.size();
-	if (length <= 15)
+	if (length <= 100)
 	{
 		insertion_deque(d_sort);	
 		return ;
@@ -164,7 +164,7 @@ void	PmergeMe::merge(std::vector<int> &left, std::vector<int> &right, std::vecto
 void	PmergeMe::merge_vector(std::vector<int> &v_sort)
 {
 	int	length = v_sort.size();
-	if (length <= 15)
+	if (length <= 100)
 	{
 		insertion_vector(v_sort);	
 		return ;
@@ -204,29 +204,15 @@ PmergeMe::PmergeMe(std::vector<std::string> &temp)
 		std::cout << " " << temp[i];
 	}
 	std::cout << std::endl;
-	if (temp.size() < 15)
-	{
-		v_time = clock();
-		insertion_vector(v_sort);
-		v_end = (double)(clock() - v_time) / CLOCKS_PER_SEC;
-		d_time = clock();
-		insertion_deque(d_sort);
-		d_end = (double)(clock() - d_time) / CLOCKS_PER_SEC;
-	}
-	else
-	{
-		v_time = clock();
-		merge_vector(v_sort);
-		v_end = (double)(clock() - v_time) / CLOCKS_PER_SEC;
-		d_time = clock();
-		merge_deque(d_sort);
-		d_end = (double)(clock() - d_time) / CLOCKS_PER_SEC;
-	}
+	v_time = clock();
+	merge_vector(v_sort);
+	v_end = (double)(clock() - v_time);
+	d_time = clock();
+	merge_deque(d_sort);
+	d_end = (double)(clock() - d_time);
 	std::cout << "After:";
 	for (std::size_t i = 0; i != v_sort.size(); i++)
-	{
 		std::cout << " " << v_sort[i];
-	}
 	std::cout << std::endl;
 	std::cout << "Time to process a range of " << v_sort.size() << " elements with std::vector : " << std::fixed << v_end << " us" << std::endl;
 	std::cout << "Time to process a range of " << d_sort.size() << " elements with std::deque : " << std::fixed << d_end << " us" << std::endl;
