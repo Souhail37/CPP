@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:18:10 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/05 23:59:01 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/06 00:00:24 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,14 +206,14 @@ PmergeMe::PmergeMe(std::vector<std::string> &temp)
 	std::cout << std::endl;
 	v_time = clock();
 	merge_vector(v_sort);
-	v_end = (double)(clock() - v_time);
+	v_end = (double)(clock() - v_time) / CLOCKS_PER_SEC;
 	d_time = clock();
 	merge_deque(d_sort);
-	d_end = (double)(clock() - d_time);
+	d_end = (double)(clock() - d_time) / CLOCKS_PER_SEC;
 	std::cout << "After:";
 	for (std::size_t i = 0; i != v_sort.size(); i++)
 		std::cout << " " << v_sort[i];
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << v_sort.size() << " elements with std::vector : " << std::fixed << v_end << " us" << std::endl;
-	std::cout << "Time to process a range of " << d_sort.size() << " elements with std::deque : " << std::fixed << d_end << " us" << std::endl;
+	std::cout << "Time to process a range of " << v_sort.size() << " elements with std::vector : " << std::fixed << v_end << " s" << std::endl;
+	std::cout << "Time to process a range of " << d_sort.size() << " elements with std::deque : " << std::fixed << d_end << " s" << std::endl;
 }
