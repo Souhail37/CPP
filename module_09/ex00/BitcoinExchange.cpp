@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/05 23:07:47 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/06 00:05:54 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ bool	isValidDate(const std::string &date)
     if (strptime(date.c_str(), "%Y-%m-%d", &timeStruct) == NULL)
         return (false);
 	if (!isdigit(date.back()))
+		return (false);
+	if (day == 0)
 		return (false);
     if (isLeapYear(year) == false && month == 2 && day > 28)
         return (false);
