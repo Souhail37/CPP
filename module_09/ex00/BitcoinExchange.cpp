@@ -6,7 +6,7 @@
 /*   By: sismaili <sismaili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 14:33:16 by sismaili          #+#    #+#             */
-/*   Updated: 2023/05/06 00:05:54 by sismaili         ###   ########.fr       */
+/*   Updated: 2023/05/06 01:26:36 by sismaili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,8 @@ bool	isValidDate(const std::string &date)
 		return (false);
     if (isLeapYear(year) == false && month == 2 && day > 28)
         return (false);
+	if (isLeapYear(year) && month == 2 && day > 29)
+		return (false);
     return (true);
 }
 
